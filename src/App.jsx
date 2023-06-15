@@ -60,12 +60,11 @@ function App() {
   }, []);
 
   useEffect(() => {
+    Notiflix.Notify.success('Your contacts was updated');
     if (contacts.length > 0) {
-      Notiflix.Notify.success('Your contacts was updated');
       localStorage.setItem('contacts', JSON.stringify(contacts));
     }
     if (contacts.length === 0) {
-      Notiflix.Notify.success('Your contacts were deleted');
       localStorage.removeItem('contacts');
     }
   }, [contacts]);
